@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "struts-2.3.dtd">
+<struts>
+	<!-- 整合Spring -->
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.objectFactory.spring.autoWire" value="name" />
+
+	<!-- 控制上传文件的大小 -->
+	<constant name="struts.multipart.maxSize" value="10485761" />
+
+
+	<package name="my" extends="struts-default">
+		<action name="*_acc" class="com.my.control.AccountAction"
+			method="{1}">
+			<result name="index">/index.jsp</result>
+			<result name="login">/login.jsp</result>
+			<result name="editadminpass">/templates/editadminpass.jsp</result>
+		</action>
+		<action name="*_poi" class="com.my.control.POIAction"
+			method="{1}">
+			<result name="addtemp001">/templates/addtemp001.jsp</result>
+			<result name="edittemp001">/templates/edittemp001.jsp</result>
+			<result name="listtemp001">/templates/listtemp001.jsp</result>
+			<result name="word" type="stream">
+				<param name="contentType">application/x-msdownload</param>
+				<param name="inputName">wordStream</param>
+				<param name="contentDisposition">filename="${fileName}.doc"</param>
+				<param name="bufferSize">1024</param>
+			</result>
+		</action>
+
+	</package>
+</struts>
