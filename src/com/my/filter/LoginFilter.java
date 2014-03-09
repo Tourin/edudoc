@@ -28,6 +28,7 @@ public class LoginFilter extends HttpServlet implements Filter {
 	public void doFilter(ServletRequest sRequest, ServletResponse sResponse,
 			FilterChain filterChain) throws IOException, ServletException {
 		sResponse.setContentType("text/html; charset=UTF-8");
+		sRequest.setCharacterEncoding("UTF-8");
 		HttpServletRequest request = (HttpServletRequest) sRequest;
 		HttpServletResponse response = (HttpServletResponse) sResponse;
 		HttpSession session = request.getSession();

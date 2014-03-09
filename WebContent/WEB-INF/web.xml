@@ -16,6 +16,18 @@
 		<filter-name>loginFilter</filter-name>
 		<url-pattern>*.jsp</url-pattern>
 	</filter-mapping>
+	<filter>
+           <filter-name>encodeFilter</filter-name>
+           <filter-class>com.my.filter.EncodeFilter</filter-class>
+           <init-param>
+               <param-name>encoding</param-name>
+               <param-value>UTF-8</param-value>
+           </init-param>
+	</filter>
+	<filter-mapping>
+           <filter-name>encodeFilter</filter-name>
+           <url-pattern>/*</url-pattern>
+	</filter-mapping>
 	<!-- 必须放在struts前，配置session in view -->
 	<!-- <filter>
 		<filter-name>OpenSessionInViewFilter</filter-name>

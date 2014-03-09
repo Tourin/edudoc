@@ -3,6 +3,14 @@
     "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
     "struts-2.3.dtd">
 <struts>
+	<!-- 中文处理 -->
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.i18n.reload" value="simple" />
+	<constant name="struts.locale" value="zh_CN" />
+	<constant name="struts.i18n.encoding" value="false" />
+	<constant name="struts.url.includeParams" value="none" />
+	
 	<!-- 整合Spring -->
 	<constant name="struts.objectFactory" value="spring" />
 	<constant name="struts.objectFactory.spring.autoWire" value="name" />
