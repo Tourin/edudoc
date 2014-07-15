@@ -38,6 +38,11 @@
 				<param name="bufferSize">1024</param>
 			</result>
 		</action>
-
+		<action name="*_tim" class="com.my.control.TimmerAction"
+			method="{1}">
+			<result name="add">/templates/addlink.jsp</result>
+			<result name="edit">/templates/editlink.jsp</result>
+			<result name="list">/templates/listlink.jsp</result>
+		</action>
 	</package>
 </struts>

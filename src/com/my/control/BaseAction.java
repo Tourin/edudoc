@@ -10,6 +10,7 @@ import com.my.bean.InfoAdmin;
 import com.my.bean.Temp001;
 import com.my.bo.AccountBo;
 import com.my.bo.POIBo;
+import com.my.bo.TimmerBo;
 import com.my.util.PageBean;
 
 public class BaseAction implements RequestAware, SessionAware {
@@ -17,6 +18,7 @@ public class BaseAction implements RequestAware, SessionAware {
 	Map<String, Object> session;
 	AccountBo accountbo;
 	POIBo poibo;
+	TimmerBo timmerbo;
 	Integer pageNo;
 	InfoAdmin admin;
 	Temp001 temp001;
@@ -37,6 +39,10 @@ public class BaseAction implements RequestAware, SessionAware {
 
 	public void setPoibo(POIBo poibo) {
 		this.poibo = poibo;
+	}
+
+	public void setTimmerbo(TimmerBo timmerbo) {
+		this.timmerbo = timmerbo;
 	}
 
 	public Integer getPageNo() {

@@ -60,9 +60,12 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath*:applicationContext.xml</param-value>
 	</context-param>
+	<!-- 爬虫程序 -->
+	<listener>
+        <listener-class>com.my.timmer.Timmer</listener-class>
+    </listener>
 </web-app>

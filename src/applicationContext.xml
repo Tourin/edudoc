@@ -32,11 +32,16 @@
 
 	<bean id="admin" class="com.my.bean.InfoAdmin" />
 	<bean id="temp001" class="com.my.bean.Temp001" />
+	<bean id="link" class="com.my.bean.Link" />
+	<bean id="html" class="com.my.bean.Html" />
 
 	<bean id="accountbo" class="com.my.bo.impl.AccountBoImpl" />
 	<bean id="poibo" class="com.my.bo.impl.POIBoImpl" />
+	<bean id="timmerbo" class="com.my.bo.impl.TimmerBoImpl" />
 
 	<bean id="basedao" class="com.my.dao.impl.BaseDAOImpl" />
 	<bean id="admindao" class="com.my.dao.impl.AdminDAOImpl" />
 	<bean id="temp001dao" class="com.my.dao.impl.Temp001DAOImpl" />
+	<bean id="linkdao" class="com.my.dao.impl.LinkDAOImpl" />
+	<bean id="htmldao" class="com.my.dao.impl.HtmlDAOImpl" />
 </beans>
