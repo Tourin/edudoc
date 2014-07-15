@@ -2,17 +2,22 @@
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
                                          "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
- <!--  DBHelper  -->
- <session-factory name="">
-  <property name="connection.url">jdbc:mysql://58.221.203.166:3306/educom</property>
-  <property name="connection.username">educom</property>
-  <property name="connection.password">educom</property>
-  <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
-  <property name="connection.driver_class">org.gjt.mm.mysql.Driver</property>
-  <!-- <property name="show_sql">true</property> -->
-  <property name="connection.useUnicode">true</property>
-  <property name="connection.characterEncoding">UTF8</property>
-  <mapping resource="com/my/bean/InfoAdmin.hbm.xml"/>
-  <mapping resource="com/my/bean/Temp001.hbm.xml"/>
- </session-factory>
+	<!-- DBHelper -->
+	<session-factory name="">
+		<property name="connection.url">jdbc:mysql://127.0.0.1:3306/educom</property>
+		<property name="connection.username">educom</property>
+		<property name="connection.password">educom</property>
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="connection.driver_class">org.gjt.mm.mysql.Driver</property>
+		<!-- <property name="show_sql">true</property> -->
+		<property name="hibernate.c3p0.min_size">5</property>
+		<property name="hibernate.c3p0.max_size">15</property>
+		<property name="hibernate.c3p0.timeout">3600</property> <!-- seconds -->
+		<property name="hibernate.c3p0.max_statements">50</property>
+		<property name="hibernate.c3p0.testConnectionOnCheckout">true</property>
+		<property name="connection.useUnicode">true</property>
+		<property name="connection.characterEncoding">UTF8</property>
+		<mapping resource="com/my/bean/InfoAdmin.hbm.xml" />
+		<mapping resource="com/my/bean/Temp001.hbm.xml" />
+	</session-factory>
 </hibernate-configuration>
