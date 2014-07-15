@@ -7,6 +7,7 @@ import org.apache.struts2.interceptor.RequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.my.bean.InfoAdmin;
+import com.my.bean.Link;
 import com.my.bean.Temp001;
 import com.my.bo.AccountBo;
 import com.my.bo.POIBo;
@@ -22,6 +23,7 @@ public class BaseAction implements RequestAware, SessionAware {
 	Integer pageNo;
 	InfoAdmin admin;
 	Temp001 temp001;
+	Link link;
 
 	@Override
 	public void setRequest(Map<String, Object> request) {
@@ -67,6 +69,14 @@ public class BaseAction implements RequestAware, SessionAware {
 
 	public void setTemp001(Temp001 temp001) {
 		this.temp001 = temp001;
+	}
+
+	public Link getLink() {
+		return link;
+	}
+
+	public void setLink(Link link) {
+		this.link = link;
 	}
 
 	@SuppressWarnings("unchecked")

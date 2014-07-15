@@ -23,11 +23,11 @@
 </head>
 <body>
 	${message}
-	<c:if test="${empty requestScope.pagebean}">
-		<c:redirect url="listThesisPrepare_use" />
+	<c:if test="${empty requestScope.list}">
+		<c:redirect url="listLinkPrepare_tim" />
 	</c:if>
 	<div class="container">
-		<h2>查询论文</h2>
+		<!-- <h2>查询论文</h2>
 
 		<form class="panel panel-ctrl" action="searchThesis_use">
 			<fieldset>
@@ -41,39 +41,31 @@
 				</select>
 				<button class="button js-loading-trigger" type="submit">查询</button>
 			</fieldset>
-		</form>
+		</form> -->
 		<div class="clearfix">
 			<table class="table table-fluid">
-				<caption>论文信息列表</caption>
+				<caption>爬虫列表</caption>
 				<thead data-spy="fixedHead" data-wrapper="table"
 					data-wrapper-class="table" data-target="#tbody-1">
 					<tr>
-						<th width="20%">标题</th>
-						<th width="15%">作者</th>
-						<th width="15%">专业</th>
-						<th width="15%">学位</th>
-						<th width="20%">附件</th>
-						<th width="15%">操作</th>
+						<th width="40%">网址</th>
+						<th width="40%">规则</th>
+						<th width="20%">选项</th>
 					</tr>
 				</thead>
 				<tbody id="tbody-1" class="typo-center">
-					<c:forEach var="thesis" items="${request.pagebean.list}">
+					<c:forEach var="link" items="${requestScope.list}">
 						<tr>
-							<td>${thesis.title}</td>
-							<td>${thesis.infoAuthor.name}</td>
-							<td>${thesis.specialty}</td>
-							<td>${thesis.educational}</td>
-							<td><a href="..${thesis.path}">下载</a></td>
+							<td>${link.link}</td>
+							<td>${link.regex}</td>
 							<td><a
-								href="getComments_use?comment.infoThesis.thesisId=${thesis.thesisId}">查看评论</a></td>
+								href="removeLink_tim?link.linkid=${link.linkid}"
+								class="typo-danger">删除</a><span class="rule-inline">|</span> <a
+								href="editLinkPrepare_tim?link.linkid=${link.linkid}">修改</a>
+							</td>
 						</tr>
 					</c:forEach>
 				</tbody>
-				<tfoot>
-					<tr>
-						<td class="typo-right" colspan="12">${pagebean.pageToolBar }</td>
-					</tr>
-				</tfoot>
 			</table>
 		</div>
 	</div>

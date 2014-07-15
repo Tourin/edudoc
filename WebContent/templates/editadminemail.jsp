@@ -20,39 +20,27 @@
 <body>
 	${message}
 	<div class="container">
-		<form class="form" action="editLink_tim" method="post"
-			enctype="multipart/form-data">
+		<form class="form" action="editAdminEmail_acc" method="post">
 			<fieldset>
-				<legend>添加爬虫</legend>
+				<legend>个人邮箱</legend>
 				<table class="table table-form table-fluid">
 					<tbody>
 						<tr class="form-item">
-							<th class="form-key"><label for="text">网址</label></th>
-							<td class="form-value"><input id="text" name="link.link"
-								class="text-input grid-3" type="text" data-parent=".form-item"
-								required data-validation-empty="请输入网址"
-								data-validation-placement="right" value="${link.link}" /></td>
-						</tr>
-						<tr class="form-item">
-							<th class="form-key"><label for="text">规则</label></th>
-							<td class="form-value"><input id="text" name="link.regex"
-								class="text-input grid-3" type="text" data-parent=".form-item"
-								required data-validation-empty="请输入规则"
-								data-validation-placement="right" value="${link.regex}" />
-							</td>
+							<th class="form-key"><label for="email">邮箱：</label></th>
+							<td class="form-value"><input id="email"
+								name="admin.email" class="text-input grid-3" type="email"
+								data-parent=".form-item" required data-validation-empty="请填写邮箱"
+								data-validation-placement="right" value="${sessionScope.admin.email}"/></td>
 						</tr>
 					</tbody>
 					<tfoot>
 						<tr>
 							<td></td>
-							<td><input class="button" type="submit" value="修改" />&nbsp;&nbsp;<input
-								class="button" onclick="window.location.href='listlink.jsp'"
-								value="取消" type="reset" /></td>
+							<td><input class="button" type="submit" value="保存"/></td>
 						</tr>
 					</tfoot>
 				</table>
 			</fieldset>
-			<input type="hidden" name="link.linkid" value="${link.linkid}">
 		</form>
 	</div>
 	<!-- / .container -->

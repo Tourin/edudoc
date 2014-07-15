@@ -14,6 +14,7 @@ public class InfoAdmin implements java.io.Serializable {
 	private Integer adminid;
 	private String name;
 	private String pass;
+	private String email;
 
 	public InfoAdmin() {
 	}
@@ -45,6 +46,14 @@ public class InfoAdmin implements java.io.Serializable {
 
 	public void setPass(String pass) {
 		this.pass = pass;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }

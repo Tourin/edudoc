@@ -14,5 +14,8 @@
 		<property name="pass" type="string">
 			<column name="pass" />
 		</property>
+		<property name="email" type="string">
+			<column name="email" />
+		</property>
 	</class>
 </hibernate-mapping>

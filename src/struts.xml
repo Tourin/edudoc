@@ -25,6 +25,7 @@
 			<result name="index">/index.jsp</result>
 			<result name="login">/login.jsp</result>
 			<result name="editadminpass">/templates/editadminpass.jsp</result>
+			<result name="editadminemail">/templates/editadminemail.jsp</result>
 		</action>
 		<action name="*_poi" class="com.my.control.POIAction"
 			method="{1}">
@@ -40,9 +41,9 @@
 		</action>
 		<action name="*_tim" class="com.my.control.TimmerAction"
 			method="{1}">
-			<result name="add">/templates/addlink.jsp</result>
-			<result name="edit">/templates/editlink.jsp</result>
-			<result name="list">/templates/listlink.jsp</result>
+			<result name="addlink">/templates/addlink.jsp</result>
+			<result name="editlink">/templates/editlink.jsp</result>
+			<result name="listlink">/templates/listlink.jsp</result>
 		</action>
 	</package>
 </struts>

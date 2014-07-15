@@ -3,6 +3,7 @@ package com.my.bo.impl;
 import java.util.List;
 
 import com.my.bean.Html;
+import com.my.bean.InfoAdmin;
 import com.my.bean.Link;
 import com.my.bo.TimmerBo;
 
@@ -72,6 +73,12 @@ public class TimmerBoImpl extends BaseBo implements TimmerBo {
 	public List<Link> getAllLink() throws Exception {
 		// TODO Auto-generated method stub
 		return linkdao.getAllLink();
+	}
+
+	@Override
+	public InfoAdmin getInfoAdminById(Class<InfoAdmin> c, Integer id)
+			throws Exception {
+		return admindao.getInfoAdminById(c, id);
 	}
 
 }

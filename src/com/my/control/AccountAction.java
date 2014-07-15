@@ -37,6 +37,7 @@ public class AccountAction extends BaseAction {
 			stf.append("<a class='menu_item js-loading-trigger' href='templates/addtemp001.jsp' target='mainframe' hidefocus>添加教案</a>");
 			stf.append("<a class='menu_item js-loading-trigger' href='templates/listtemp001.jsp' target='mainframe' hidefocus>教案列表</a>");
 			stf2.append("<a class='menu_item js-loading-trigger' href='templates/editadminpass.jsp' target='mainframe' hidefocus>修改密码</a>");
+			stf2.append("<a class='menu_item js-loading-trigger' href='templates/editadminemail.jsp' target='mainframe' hidefocus>修改邮箱</a>");
 			session.put("rights", stf.toString());
 			session.put("rights2", stf2.toString());
 			session.put("admin", admin);
@@ -66,5 +67,13 @@ public class AccountAction extends BaseAction {
 		request.put("message",
 				"<script laguage='JavaScript'> alert('修改成功,请重新登录!') </script>");
 		return "editadminpass";
+	}
+
+	public String editAdminEmail() throws Exception {
+		InfoAdmin a = (InfoAdmin) session.get("admin");
+		a.setEmail(admin.getEmail());
+		accountbo.editInfoAdmin(a);
+		session.put("admin", admin);
+		return "editadminemail";
 	}
 }

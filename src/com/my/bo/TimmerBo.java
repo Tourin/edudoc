@@ -3,6 +3,7 @@ package com.my.bo;
 import java.util.List;
 
 import com.my.bean.Html;
+import com.my.bean.InfoAdmin;
 import com.my.bean.Link;
 
 public interface TimmerBo {
@@ -28,4 +29,6 @@ public interface TimmerBo {
 	Html getHtmlById(Class<Html> c, Integer id) throws Exception;
 
 	boolean removeHtml(Integer id) throws Exception;
+
+	InfoAdmin getInfoAdminById(Class<InfoAdmin> c, Integer id) throws Exception;
 }
