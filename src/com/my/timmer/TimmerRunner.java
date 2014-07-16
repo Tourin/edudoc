@@ -126,7 +126,7 @@ public class TimmerRunner extends TimerTask {
 
 	private String getCha(String html1, String html2) {
 		if (html1 == null || html2 == null || html1.isEmpty()
-				|| html2.isEmpty()) {
+				|| html2.isEmpty() || html1.equals("init")) {
 			return "";
 		}
 		diff_match_patch dmp = new diff_match_patch();
