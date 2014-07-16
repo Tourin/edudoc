@@ -124,16 +124,16 @@ public class TimmerRunner extends TimerTask {
 		return sb.toString();
 	}
 
-	private String getCha(String html1, String html2) {
-		if (html1 == null || html2 == null || html1.isEmpty()
-				|| html2.isEmpty() || html1.equals("init")) {
+	private String getCha(String old, String newhtml) {
+		if (old == null || newhtml == null || old.isEmpty()
+				|| newhtml.isEmpty() || old.equals("init")) {
 			return "";
 		}
 		diff_match_patch dmp = new diff_match_patch();
-		LinkedList<Diff> dflist = dmp.diff_main(html1, html2);
+		LinkedList<Diff> dflist = dmp.diff_main(old, newhtml);
 		StringBuilder sb = new StringBuilder();
 		for (Diff myDiff : dflist) {
-			if (myDiff.operation != diff_match_patch.Operation.EQUAL) {
+			if (myDiff.operation == diff_match_patch.Operation.INSERT) {
 				sb.append(myDiff.text);
 			}
 		}
