@@ -56,7 +56,7 @@
 				<tbody id="tbody-1" class="typo-center">
 					<c:forEach var="link" items="${requestScope.list}">
 						<tr>
-							<td>${link.link}</td>
+							<td <c:if test="${empty link.html}">style="color:red;"</c:if>>${link.link}</td>
 							<td>${link.regex}</td>
 							<td><a
 								href="removeLink_tim?link.linkid=${link.linkid}"

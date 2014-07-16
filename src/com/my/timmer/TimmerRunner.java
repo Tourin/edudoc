@@ -1,6 +1,8 @@
 package com.my.timmer;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.TimerTask;
 import java.util.regex.Matcher;
@@ -12,6 +14,8 @@ import com.my.bean.InfoAdmin;
 import com.my.bean.Link;
 import com.my.bo.TimmerBo;
 import com.my.util.EmailSend;
+import com.my.util.diff_match_patch;
+import com.my.util.diff_match_patch.Diff;
 
 import edu.uci.ics.crawler4j.crawler.CrawlConfig;
 import edu.uci.ics.crawler4j.crawler.Page;
@@ -36,6 +40,13 @@ public class TimmerRunner extends TimerTask {
 	}
 
 	public void run() {
+		int start = 8;
+		int end = 18;
+		Calendar now = Calendar.getInstance();
+		int hour = now.get(Calendar.HOUR_OF_DAY);
+		if (hour < start || hour > end) {
+			return;
+		}
 		List<Link> links = new ArrayList<>();
 		try {
 			links = timmerbo.getAllLink();
@@ -118,34 +129,15 @@ public class TimmerRunner extends TimerTask {
 				|| html2.isEmpty()) {
 			return "";
 		}
-		char[] charArray1 = html1.toCharArray();
-		char[] charArray2 = html2.toCharArray();
-		int length = charArray1.length > charArray2.length ? charArray1.length
-				: charArray2.length;
-		int first = getFirstIndex(charArray1, charArray2, length);
-		int end = getEndIndex(charArray1, charArray2, length);
-		String substring = html2.substring(first, end + 1);
-		return substring;
-	}
-
-	private int getFirstIndex(char[] charArray1, char[] charArray2, int length) {
-		for (int i = 0; i < length; i++) {
-			if (charArray1[i] != charArray2[i]) {
-				return i;
+		diff_match_patch dmp = new diff_match_patch();
+		LinkedList<Diff> dflist = dmp.diff_main(html1, html2);
+		StringBuilder sb = new StringBuilder();
+		for (Diff myDiff : dflist) {
+			if (myDiff.operation != diff_match_patch.Operation.EQUAL) {
+				sb.append(myDiff.text);
 			}
 		}
-		return 0;
-	}
-
-	private int getEndIndex(char[] charArray1, char[] charArray2, int length) {
-		int le1 = charArray1.length;
-		int le2 = charArray2.length;
-		for (int i = 1; i < length; i++) {
-			if (charArray1[le1 - i] != charArray2[le2 - i]) {
-				return le2 - i;
-			}
-		}
-		return 0;
+		return sb.toString();
 	}
 
 	private String pattern(String html) {

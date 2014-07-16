@@ -19,7 +19,7 @@ public class EmailSend {
 		// mailMessage.setTo(array);
 		mailMessage.setTo(address);
 		mailMessage.setFrom("scorewarning@163.com");
-		mailMessage.setSubject("成绩预警通知");
+		mailMessage.setSubject("网页更新通知");
 		mailMessage.setText(message);
 		senderImpl.setUsername("scorewarning"); // 根据自己的情况,设置username
 		senderImpl.setPassword("abc123"); // 根据自己的情况, 设置password

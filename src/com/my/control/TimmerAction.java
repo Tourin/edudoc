@@ -7,6 +7,7 @@ import com.my.bean.Link;
 public class TimmerAction extends BaseAction {
 
 	public String addLink() throws Exception {
+		link.setHtml("init");
 		timmerbo.addLink(link);
 		request.put("message",
 				"<script laguage='JavaScript'> alert('已添加!') </script>");
