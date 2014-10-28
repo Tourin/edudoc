@@ -14,6 +14,7 @@
 	    <property name="connection.characterEncoding">UTF8</property>
 		<mapping resource="com/my/bean/InfoAdmin.hbm.xml" />
 		<mapping resource="com/my/bean/Temp001.hbm.xml" />
+		<mapping resource="com/my/bean/Temp002.hbm.xml" />
 		<mapping resource="com/my/bean/Link.hbm.xml" />
 		<mapping resource="com/my/bean/Html.hbm.xml" />
 	</session-factory>

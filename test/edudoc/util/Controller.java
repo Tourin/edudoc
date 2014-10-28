@@ -6,33 +6,52 @@ import java.util.regex.Pattern;
 import org.apache.http.HttpStatus;
 
 import edu.uci.ics.crawler4j.crawler.CrawlConfig;
+import edu.uci.ics.crawler4j.crawler.CrawlController;
 import edu.uci.ics.crawler4j.crawler.Page;
 import edu.uci.ics.crawler4j.fetcher.PageFetchResult;
 import edu.uci.ics.crawler4j.fetcher.PageFetcher;
 import edu.uci.ics.crawler4j.parser.HtmlParseData;
 import edu.uci.ics.crawler4j.parser.ParseData;
 import edu.uci.ics.crawler4j.parser.Parser;
+import edu.uci.ics.crawler4j.robotstxt.RobotstxtConfig;
+import edu.uci.ics.crawler4j.robotstxt.RobotstxtServer;
 import edu.uci.ics.crawler4j.url.WebURL;
 
 public class Controller {
 	private Parser parser;
 	private PageFetcher pageFetcher;
 
-	public static void main(String args[]) {
-		// Controller c = new Controller();
-		// c.processUrl("http://zfcg.nantong.gov.cn/col/col30067/index.html");
-		String html = "aaabbbccc";
-		String html2 = "acaaaaeeeddcc";
-		char[] charArray1 = html.toCharArray();
-		char[] charArray2 = html2.toCharArray();
-		int length = charArray1.length > charArray2.length ? charArray1.length
-				: charArray2.length;
-		int first = getFirstIndex(charArray1, charArray2, length);
-		int end = getEndIndex(charArray1, charArray2, length);
-		System.out.println(first);
-		System.out.println(end);
-		String substring = html2.substring(first, end + 1);
-		System.out.println(substring);
+	public static void main(String args[]) throws Exception {
+		String crawlStorageFolder = "d:/tmp/crawl/root";
+		int numberOfCrawlers = 2;
+
+		CrawlConfig config = new CrawlConfig();
+		config.setCrawlStorageFolder(crawlStorageFolder);
+		config.setMaxPagesToFetch(1);
+
+		/*
+		 * Instantiate the controller for this crawl.
+		 */
+		PageFetcher pageFetcher = new PageFetcher(config);
+		RobotstxtConfig robotstxtConfig = new RobotstxtConfig();
+		RobotstxtServer robotstxtServer = new RobotstxtServer(robotstxtConfig,
+				pageFetcher);
+		CrawlController controller = new CrawlController(config, pageFetcher,
+				robotstxtServer);
+
+		/*
+		 * For each crawl, you need to add some seed urls. These are the first
+		 * URLs that are fetched and then the crawler starts following links
+		 * which are found in these pages
+		 */
+		controller
+				.addSeed("http://219.142.101.185/jianguanfabuweb/companies.aspx");
+
+		/*
+		 * Start the crawl. This is a blocking operation, meaning that your code
+		 * will reach the line after this only when crawling is finished.
+		 */
+		controller.start(MyCrawler.class, numberOfCrawlers);
 	}
 
 	private static int getFirstIndex(char[] charArray1, char[] charArray2,

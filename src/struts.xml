@@ -45,5 +45,11 @@
 			<result name="editlink">/templates/editlink.jsp</result>
 			<result name="listlink">/templates/listlink.jsp</result>
 		</action>
+		<action name="*_cit" class="com.my.control.CityAction"
+			method="{1}">
+			<result name="addtemp002">/templates/addtemp002.jsp</result>
+			<result name="edittemp002">/templates/edittemp002.jsp</result>
+			<result name="listtemp002">/templates/listtemp002.jsp</result>
+		</action>
 	</package>
 </struts>

@@ -34,6 +34,8 @@ public class AccountAction extends BaseAction {
 			stf.append("<a class='menu_item is-menu_item-on js-loading-trigger' href='about.html' target='mainframe' hidefocus>首页</a>");
 			stf.append("<a class='menu_item js-loading-trigger' href='templates/addlink.jsp' target='mainframe' hidefocus>添加爬虫</a>");
 			stf.append("<a class='menu_item js-loading-trigger' href='templates/listlink.jsp' target='mainframe' hidefocus>爬虫列表</a>");
+			stf.append("<a class='menu_item js-loading-trigger' href='templates/addtemp002.jsp' target='mainframe' hidefocus>添加资质</a>");
+			stf.append("<a class='menu_item js-loading-trigger' href='templates/listtemp002.jsp' target='mainframe' hidefocus>资质列表</a>");
 			stf.append("<a class='menu_item js-loading-trigger' href='templates/addtemp001.jsp' target='mainframe' hidefocus>添加教案</a>");
 			stf.append("<a class='menu_item js-loading-trigger' href='templates/listtemp001.jsp' target='mainframe' hidefocus>教案列表</a>");
 			stf2.append("<a class='menu_item js-loading-trigger' href='templates/editadminpass.jsp' target='mainframe' hidefocus>修改密码</a>");

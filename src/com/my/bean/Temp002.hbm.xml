@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-3-7 19:32:19 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="com.my.bean.Temp002" table="temp002" catalog="educom">
+		<id name="temp002id" type="java.lang.Integer">
+			<column name="temp002id" />
+			<generator class="identity" />
+		</id>
+		<property name="f1" type="string">
+			<column name="f1" />
+		</property>
+		<property name="f2" type="string">
+			<column name="f2" />
+		</property>
+		<property name="f3" type="string">
+			<column name="f3" />
+		</property>
+		<property name="f4" type="string">
+			<column name="f4" />
+		</property>
+		<property name="f5" type="string">
+			<column name="f5" />
+		</property>
+		<property name="f6" type="string">
+			<column name="f6" />
+		</property>
+		<property name="f7" type="string">
+			<column name="f7" />
+		</property>
+		<property name="f8" type="string">
+			<column name="f8" />
+		</property>
+		<property name="f9" type="string">
+			<column name="f9" />
+		</property>
+		<property name="fa" type="string">
+			<column name="fa" />
+		</property>
+		<property name="fb" type="string">
+			<column name="fb" />
+		</property>
+		<property name="fc" type="string">
+			<column name="fc" />
+		</property>
+		<property name="fd" type="string">
+			<column name="fd" />
+		</property>
+	</class>
+</hibernate-mapping>
