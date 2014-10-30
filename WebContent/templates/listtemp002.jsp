@@ -47,23 +47,25 @@
 				<thead data-spy="fixedHead" data-wrapper="table"
 					data-wrapper-class="table" data-target="#tbody-1">
 					<tr>
+						<th >序号</th>
 						<th width="10%">企业名称</th>
 						<th width="10%">所在省份</th>
-						<th width="20%">住建部资质</th>
-						<th >系统集成资质</th>
-						<th >安防资质</th>
+						<th width="20%">资质范围</th>
+						<th >证书号</th>
+						<th >有效期至</th>
 						<th >法人</th>
 						<th >地址</th>
 						<th >电话</th>
 						<th >联系人</th>
 						<th >联系方式</th>
-						<th >南通分公司</th>
+						<th >注册地址</th>
 						<th>操作</th>
 					</tr>
 				</thead>
 				<tbody id="tbody-1" class="typo-center">
 					<c:forEach var="temp002" items="${request.pagebean.list}">
 						<tr>
+							<td>${temp002.temp002id}</td>
 							<td>${temp002.f1}</td>
 							<td>${temp002.f2}</td>
 							<td>${temp002.f3}</td>
